@@ -218,6 +218,9 @@ class StorageConfig implements IStorageConfig {
 						case \OCP\Files\External\DefinitionParameter::VALUE_BOOLEAN:
 							$value = (bool)$value;
 							break;
+						default:
+							$value = str_replace(array("\n", "\r"), '', $value);
+							break;
 					}
 					$backendOptions[$key] = $value;
 				}
